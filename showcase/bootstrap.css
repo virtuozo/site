@@ -5747,6 +5747,10 @@ button.close {
 
 .pager-text {
 	padding:6px;
+}
+
+.panel-group > .panel > .panel-heading:hover {
+	cursor: pointer;
 }/*!
  * Bootstrap v3.3.1 (http://getbootstrap.com)
  * Copyright 2011-2014 Twitter, Inc.

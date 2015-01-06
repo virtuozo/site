@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module rename-to='showcase'>
+  <inherits name='virtuozo.themes.Bootstrap' />
+  <inherits name='virtuozo.themes.FontAwesome' />
+  <inherits name='virtuozo.themes.Glyphicons' />
+  <inherits name='virtuozo.Widgets' />
+  <inherits name='virtuozo.Core' />
+
+  <source path="showcase/ui" />
+  <source path="showcase/infra" />
+  <source path="showcase/application" />
+  <source path="showcase/i18n" />
+  <resource path="showcase/images" />
+  
+  <public path="showcase/css"/>
+  
+  <stylesheet src="showcase.css"/>
+  
+  <extend-property name="locale" values="en"/>
+  <set-property-fallback name="locale" value="en"/>
+
+  <entry-point class='virtuozo.showcase.application.Showcase' />
+  
+  <!-- Syntax highlight -->
+  <public path="showcase/highlight"/>
+  
+  <stylesheet src="shCore.css"/>
+  <stylesheet src="shThemeEclipse.css"/>
+  
+  <!-- Dev Settings 
+  -->
+  <collapse-all-properties />
+  
+  <add-linker name="xsiframe" />
+  <set-property name="compiler.useSourceMaps" value="true" />
+  <set-property  name="gwt.logging.enabled" value="WARNING" />
+</module>
