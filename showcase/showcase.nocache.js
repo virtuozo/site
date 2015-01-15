@@ -416,16 +416,16 @@ function showcase(){
     }
     var strongName;
     try {
-      unflattenKeylistIntoAnswers(['default', 'gecko1_8'], 'B0D9FB2373EF519DE2EE571855765C55');
-      unflattenKeylistIntoAnswers(['default', 'ie10'], 'B0D9FB2373EF519DE2EE571855765C55' + ':1');
-      unflattenKeylistIntoAnswers(['default', 'ie8'], 'B0D9FB2373EF519DE2EE571855765C55' + ':2');
-      unflattenKeylistIntoAnswers(['default', 'ie9'], 'B0D9FB2373EF519DE2EE571855765C55' + ':3');
-      unflattenKeylistIntoAnswers(['default', 'safari'], 'B0D9FB2373EF519DE2EE571855765C55' + ':4');
-      unflattenKeylistIntoAnswers(['en', 'gecko1_8'], 'B0D9FB2373EF519DE2EE571855765C55' + ':5');
-      unflattenKeylistIntoAnswers(['en', 'ie10'], 'B0D9FB2373EF519DE2EE571855765C55' + ':6');
-      unflattenKeylistIntoAnswers(['en', 'ie8'], 'B0D9FB2373EF519DE2EE571855765C55' + ':7');
-      unflattenKeylistIntoAnswers(['en', 'ie9'], 'B0D9FB2373EF519DE2EE571855765C55' + ':8');
-      unflattenKeylistIntoAnswers(['en', 'safari'], 'B0D9FB2373EF519DE2EE571855765C55' + ':9');
+      unflattenKeylistIntoAnswers(['default', 'gecko1_8'], 'BF6768360F957941438DE464CE5D2C76');
+      unflattenKeylistIntoAnswers(['default', 'ie10'], 'BF6768360F957941438DE464CE5D2C76' + ':1');
+      unflattenKeylistIntoAnswers(['default', 'ie8'], 'BF6768360F957941438DE464CE5D2C76' + ':2');
+      unflattenKeylistIntoAnswers(['default', 'ie9'], 'BF6768360F957941438DE464CE5D2C76' + ':3');
+      unflattenKeylistIntoAnswers(['default', 'safari'], 'BF6768360F957941438DE464CE5D2C76' + ':4');
+      unflattenKeylistIntoAnswers(['en', 'gecko1_8'], 'BF6768360F957941438DE464CE5D2C76' + ':5');
+      unflattenKeylistIntoAnswers(['en', 'ie10'], 'BF6768360F957941438DE464CE5D2C76' + ':6');
+      unflattenKeylistIntoAnswers(['en', 'ie8'], 'BF6768360F957941438DE464CE5D2C76' + ':7');
+      unflattenKeylistIntoAnswers(['en', 'ie9'], 'BF6768360F957941438DE464CE5D2C76' + ':8');
+      unflattenKeylistIntoAnswers(['en', 'safari'], 'BF6768360F957941438DE464CE5D2C76' + ':9');
       strongName = answers[computePropValue('locale')][computePropValue('user.agent')];
       var idx = strongName.indexOf(':');
       if (idx != -1) {
@@ -454,9 +454,9 @@ function showcase(){
     }
 
     sendStats('loadExternalRefs', 'begin');
-    installOneStylesheet('bootstrap.css');
     installOneStylesheet('font-awesome.css');
     installOneStylesheet('glyphicons.css');
+    installOneStylesheet('bootstrap.css');
     installOneStylesheet('widgets.css');
     installOneStylesheet('showcase.css');
     installOneStylesheet('shCore.css');

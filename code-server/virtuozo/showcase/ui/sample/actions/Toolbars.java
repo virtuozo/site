@@ -4,12 +4,12 @@ import virtuozo.showcase.ui.sample.Fragment;
 import virtuozo.ui.ButtonGroup;
 import virtuozo.ui.FontAwesome;
 import virtuozo.ui.Toolbar;
-import virtuozo.ui.api.HasComponents;
+import virtuozo.ui.interfaces.HasComponents;
 
 public class Toolbars implements Fragment {
 
   public void render(HasComponents<?, ?> target) {
-    Toolbar bar = new Toolbar().attachTo(target);
+    Toolbar bar = Toolbar.create().attachTo(target);
     ButtonGroup group = bar.addButtonGroup();
     group.addButton().icon(FontAwesome.ALIGN_LEFT);
     group.addButton().icon(FontAwesome.ALIGN_CENTER);
@@ -24,5 +24,10 @@ public class Toolbars implements Fragment {
     group.addButton().text("Button");
     group.addDropButton().text("Dropdown").menu().addItem().text("Menu Item");
     group.addSplitButton().text("SplitButton").menu().addItem().text("MenuItem");
+  }
+  
+  @Override
+  public String title() {
+    return "Toolbar";
   }
 }

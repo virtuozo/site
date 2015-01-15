@@ -2,8 +2,8 @@ package virtuozo.showcase.ui.sample.actions;
 
 import virtuozo.showcase.ui.sample.Fragment;
 import virtuozo.ui.SplitButton;
-import virtuozo.ui.api.HasComponents;
 import virtuozo.ui.css.ButtonColor;
+import virtuozo.ui.interfaces.HasComponents;
 
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
@@ -22,7 +22,7 @@ public class SplitButtons implements Fragment {
   }
   
   private SplitButton createSample(HasComponents<?, ?> target){
-    SplitButton split = new SplitButton().attachTo(target).text("Action");
+    SplitButton split = SplitButton.create().attachTo(target).text("Action");
     split.menu().addHeader("Menu Header");
     split.menu().addItem().text("Menu item").onClick(new ClickHandler() {
       @Override
@@ -40,5 +40,10 @@ public class SplitButtons implements Fragment {
     });
     
     return split;
+  }
+  
+  @Override
+  public String title() {
+    return "Split Button";
   }
 }

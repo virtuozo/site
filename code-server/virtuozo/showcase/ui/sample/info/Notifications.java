@@ -2,11 +2,11 @@ package virtuozo.showcase.ui.sample.info;
 
 import virtuozo.showcase.ui.sample.Fragment;
 import virtuozo.ui.ButtonGroup;
-import virtuozo.ui.Notification;
 import virtuozo.ui.Notifier;
-import virtuozo.ui.api.HasComponents;
-import virtuozo.ui.api.UIClass;
+import virtuozo.ui.Notifier.Notification;
 import virtuozo.ui.css.ButtonColor;
+import virtuozo.ui.interfaces.HasComponents;
+import virtuozo.ui.interfaces.UIClass;
 
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
@@ -14,7 +14,7 @@ import com.google.gwt.event.dom.client.ClickHandler;
 public class Notifications implements Fragment {
 
   public void render(HasComponents<?, ?> target) {
-    ButtonGroup group = new ButtonGroup().attachTo(target);
+    ButtonGroup group = ButtonGroup.horizontal().attachTo(target);
     group.addButton().text("DEFAULT").onClick(new ClickHandler() {
       
       @Override
@@ -36,7 +36,7 @@ public class Notifications implements Fragment {
         Notifications.this.notify(Notification.Color.INFO);
       }
     });
-    group.addButton().text("NOTICE").css(ButtonColor.SUCCESS).onClick(new ClickHandler() {
+    group.addButton().text("SUCCESS").css(ButtonColor.SUCCESS).onClick(new ClickHandler() {
       
       @Override
       public void onClick(ClickEvent event) {
@@ -80,4 +80,8 @@ public class Notifications implements Fragment {
     notification.show();
   }
   
+  @Override
+  public String title() {
+    return "Notification";
+  }
 }

@@ -5751,6 +5751,10 @@ button.close {
 
 .panel-group > .panel > .panel-heading:hover {
 	cursor: pointer;
+}
+
+.form-footer > button, .form-footer > .btn {
+	margin-right: 5px;
 }/*!
  * Bootstrap v3.3.1 (http://getbootstrap.com)
  * Copyright 2011-2014 Twitter, Inc.

@@ -3,8 +3,8 @@ package virtuozo.showcase.ui.sample.actions;
 import virtuozo.showcase.ui.sample.Fragment;
 import virtuozo.ui.Button;
 import virtuozo.ui.DropButton;
-import virtuozo.ui.api.HasComponents;
 import virtuozo.ui.css.ButtonColor;
+import virtuozo.ui.interfaces.HasComponents;
 
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
@@ -27,7 +27,7 @@ public class DropDowns implements Fragment {
   }
   
   private DropButton createSample(HasComponents<?, ?> target){
-    DropButton drop = new DropButton().attachTo(target).text("Dropdown");
+    DropButton drop = DropButton.create().attachTo(target).text("Dropdown");
     drop.menu().addHeader("Menu Header");
     drop.menu().addItem().text("Menu item").onClick(new ClickHandler() {
       @Override
@@ -45,5 +45,10 @@ public class DropDowns implements Fragment {
     });
     
     return drop;
+  }
+  
+  @Override
+  public String title() {
+    return "Dropdown";
   }
 }

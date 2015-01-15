@@ -1,13 +1,13 @@
 package virtuozo.showcase.ui.sample.icons;
 
 import virtuozo.ui.Component;
-import virtuozo.ui.ListItem;
 import virtuozo.ui.OrderList;
+import virtuozo.ui.OrderList.ListItem;
 import virtuozo.ui.Text;
-import virtuozo.ui.api.Icon;
+import virtuozo.ui.interfaces.Icon;
 
 public class IconsList extends Component<IconsList> {
-  private OrderList list = new OrderList(OrderList.Type.UNORDERED).css("bs-icons", "bs-icons-list");
+  private OrderList list = OrderList.unordered().css("bs-icons", "bs-icons-list");
   
   public IconsList() {
     this.incorporate(this.list);
@@ -16,6 +16,6 @@ public class IconsList extends Component<IconsList> {
   public void add(Icon icon){
     ListItem item = this.list.addItem();
     icon.attachTo(item);
-    item.add(new Text().css("icon-class").text(icon.name().toLowerCase()));
+    item.add(Text.create().css("icon-class").text(icon.name().toLowerCase()));
   }
 }

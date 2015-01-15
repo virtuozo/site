@@ -7,12 +7,18 @@ import virtuozo.showcase.ui.sample.actions.DropDowns;
 import virtuozo.showcase.ui.sample.actions.Modals;
 import virtuozo.showcase.ui.sample.actions.SplitButtons;
 import virtuozo.showcase.ui.sample.actions.Toolbars;
+import virtuozo.ui.FontAwesome;
 
 public class Actions implements Sample {
   
   @Override
   public String title() {
     return "Actions";
+  }
+  
+  @Override
+  public FontAwesome icon() {
+    return FontAwesome.COG;
   }
   
   @Override

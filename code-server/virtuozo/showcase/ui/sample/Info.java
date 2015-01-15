@@ -6,12 +6,18 @@ import virtuozo.showcase.ui.sample.info.Notifications;
 import virtuozo.showcase.ui.sample.info.Popovers;
 import virtuozo.showcase.ui.sample.info.Progressbars;
 import virtuozo.showcase.ui.sample.info.Tooltips;
+import virtuozo.ui.FontAwesome;
 
 public class Info implements Sample {
   
   @Override
   public String title() {
-    return "Informational";
+    return "Alert";
+  }
+  
+  @Override
+  public FontAwesome icon() {
+    return FontAwesome.WARNING;
   }
   
   @Override
