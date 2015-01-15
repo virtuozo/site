@@ -416,16 +416,16 @@ function showcase(){
     }
     var strongName;
     try {
-      unflattenKeylistIntoAnswers(['default', 'gecko1_8'], 'BF6768360F957941438DE464CE5D2C76');
-      unflattenKeylistIntoAnswers(['default', 'ie10'], 'BF6768360F957941438DE464CE5D2C76' + ':1');
-      unflattenKeylistIntoAnswers(['default', 'ie8'], 'BF6768360F957941438DE464CE5D2C76' + ':2');
-      unflattenKeylistIntoAnswers(['default', 'ie9'], 'BF6768360F957941438DE464CE5D2C76' + ':3');
-      unflattenKeylistIntoAnswers(['default', 'safari'], 'BF6768360F957941438DE464CE5D2C76' + ':4');
-      unflattenKeylistIntoAnswers(['en', 'gecko1_8'], 'BF6768360F957941438DE464CE5D2C76' + ':5');
-      unflattenKeylistIntoAnswers(['en', 'ie10'], 'BF6768360F957941438DE464CE5D2C76' + ':6');
-      unflattenKeylistIntoAnswers(['en', 'ie8'], 'BF6768360F957941438DE464CE5D2C76' + ':7');
-      unflattenKeylistIntoAnswers(['en', 'ie9'], 'BF6768360F957941438DE464CE5D2C76' + ':8');
-      unflattenKeylistIntoAnswers(['en', 'safari'], 'BF6768360F957941438DE464CE5D2C76' + ':9');
+      unflattenKeylistIntoAnswers(['default', 'gecko1_8'], '129D37885902C8080A0F6C5611556C45');
+      unflattenKeylistIntoAnswers(['default', 'ie10'], '129D37885902C8080A0F6C5611556C45' + ':1');
+      unflattenKeylistIntoAnswers(['default', 'ie8'], '129D37885902C8080A0F6C5611556C45' + ':2');
+      unflattenKeylistIntoAnswers(['default', 'ie9'], '129D37885902C8080A0F6C5611556C45' + ':3');
+      unflattenKeylistIntoAnswers(['default', 'safari'], '129D37885902C8080A0F6C5611556C45' + ':4');
+      unflattenKeylistIntoAnswers(['en', 'gecko1_8'], '129D37885902C8080A0F6C5611556C45' + ':5');
+      unflattenKeylistIntoAnswers(['en', 'ie10'], '129D37885902C8080A0F6C5611556C45' + ':6');
+      unflattenKeylistIntoAnswers(['en', 'ie8'], '129D37885902C8080A0F6C5611556C45' + ':7');
+      unflattenKeylistIntoAnswers(['en', 'ie9'], '129D37885902C8080A0F6C5611556C45' + ':8');
+      unflattenKeylistIntoAnswers(['en', 'safari'], '129D37885902C8080A0F6C5611556C45' + ':9');
       strongName = answers[computePropValue('locale')][computePropValue('user.agent')];
       var idx = strongName.indexOf(':');
       if (idx != -1) {
