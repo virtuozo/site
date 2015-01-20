@@ -172,9 +172,11 @@
 
 .calendar td.off {
   color: #999;
+  cursor: default;
 }
 .calendar td.disabled {
   color: #999;
+  cursor: default;
 }
 
 .calendar td.available:hover, .calendar th.available:hover {
@@ -208,9 +210,6 @@
 .calendar td.week, .calendar th.week {
     font-size: 80%;
     color: #ccc;
-}
-.layout-horizontal{
-	padding-right: 10px;
 }
 .notifier {
 	position: fixed;
@@ -407,7 +406,6 @@
     margin-top:-1px;
     position: absolute;
     z-index: 9999;
-    top: 100%;
 
     background: #fff;
     color: #000;

@@ -5755,7 +5755,16 @@ button.close {
 
 .form-footer > button, .form-footer > .btn {
 	margin-right: 5px;
-}/*!
+}
+
+.affix-on-top {
+	top: 10px;
+}
+
+.affix-on-bottom {
+	bottom: 10px;
+}
+/*!
  * Bootstrap v3.3.1 (http://getbootstrap.com)
  * Copyright 2011-2014 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)

@@ -5,6 +5,7 @@ import virtuozo.showcase.application.Places;
 import virtuozo.showcase.ui.Bundle;
 import virtuozo.showcase.ui.DocsPresenter.DocsView;
 import virtuozo.showcase.ui.sample.Actions;
+import virtuozo.showcase.ui.sample.Ajax;
 import virtuozo.showcase.ui.sample.Decorations;
 import virtuozo.showcase.ui.sample.Events;
 import virtuozo.showcase.ui.sample.Forms;
@@ -16,9 +17,10 @@ import virtuozo.showcase.ui.sample.Layouts;
 import virtuozo.showcase.ui.sample.Navigation;
 import virtuozo.showcase.ui.sample.Sample;
 import virtuozo.showcase.ui.sample.Sampler;
+import virtuozo.showcase.ui.sample.Storage;
 import virtuozo.showcase.ui.sample.Typography;
 import virtuozo.ui.Affix;
-import virtuozo.ui.BareLayout;
+import virtuozo.ui.BarePageLayout;
 import virtuozo.ui.Container;
 import virtuozo.ui.FontAwesome;
 import virtuozo.ui.Heading;
@@ -45,10 +47,11 @@ import com.google.gwt.dom.client.Style.Overflow;
 import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.user.client.Window;
 
 public class DocsPage implements DocsView {
 
-  private BareLayout layout = new BareLayout();
+  private BarePageLayout layout = BarePageLayout.create();
   
   private Column samples;
   
@@ -67,42 +70,53 @@ public class DocsPage implements DocsView {
     this.layout.navbar().rightFacet().addItem().text(Bundle.constants().restRescue());
     this.layout.navbar().rightForm().addInput(InputText.create().placeholder("Search..."));
 
-    Tag<DivElement> top = Tag.asDiv().attachTo(this.layout.container());
+    Tag<DivElement> top = Tag.asDiv().attachTo(this.layout.body());
     top.style().overflow(Overflow.SCROLL).overflowY(Overflow.HIDDEN).marginBottom(5, Unit.PX);
-    LayoutPanel mainPanel = LayoutPanel.horizontal().attachTo(top);
+    LayoutPanel dockerPanel = LayoutPanel.horizontal().attachTo(top).css("docker");
     
-    Container container = this.layout.container();
+    Container container = this.layout.body();
     Row mainRow = container.addRow();
     Column left = mainRow.addColumn().span(3, ViewPort.SMALL);
     this.samples = mainRow.addColumn().span(9, ViewPort.SMALL);
     
     this.leftPanel.attachTo(left).hide();
-    Affix.create().to(this.leftPanel);
+    this.leftPanel.footer().detachChildren().add(Tag.asAnchor().text("Back to top").onClick(new ClickHandler() {
+      
+      @Override
+      public void onClick(ClickEvent event) {
+        Window.scrollTo(0, 0);
+      }
+    }));
+    Affix.onTop().to(this.leftPanel);
     
-    this.createSample(mainPanel, new Typography());
-    this.createSample(mainPanel, new Decorations());
-    this.createSample(mainPanel, new Layouts());
-    this.createSample(mainPanel, new Navigation());
-    this.createSample(mainPanel, new Info());
-    this.createSample(mainPanel, new Actions());
-    this.createSample(mainPanel, new Icons());
-    this.createSample(mainPanel, new Forms());
-    this.createSample(mainPanel, new I18n());
-    this.createSample(mainPanel, new Events());
+    this.createSample(dockerPanel, new Typography());
+    this.createSample(dockerPanel, new Decorations());
+    this.createSample(dockerPanel, new Layouts());
+    this.createSample(dockerPanel, new Navigation());
+    this.createSample(dockerPanel, new Info());
+    this.createSample(dockerPanel, new Actions());
+    this.createSample(dockerPanel, new Icons());
+    this.createSample(dockerPanel, new Forms());
+    this.createSample(dockerPanel, new Events());
+    this.createSample(dockerPanel, new I18n());
+    this.createSample(dockerPanel, new Ajax());
+    this.createSample(dockerPanel, new Storage());
     
     this.switchTo(new Typography());
   }
   
   private void createSample(LayoutPanel main, final Sample sample){
     LayoutPanel panel = LayoutPanel.vertical();
-    panel.add(StackedIcon.create().css(FontAwesome.Styles.TWICE_LARGE, TextColor.INFO).larger(FontAwesome.CIRCLE).regular(sample.icon(), FontAwesome.Styles.INVERSE));
-    panel.add(Tag.asAnchor().add(Heading.six().css("heading").text(sample.title())).onClick(new ClickHandler() {
+    StackedIcon icon = StackedIcon.create().css(FontAwesome.Styles.TWICE_LARGE, TextColor.INFO).larger(FontAwesome.CIRCLE).regular(sample.icon(), FontAwesome.Styles.INVERSE);
+    ClickHandler navigate = new ClickHandler() {
       
       @Override
       public void onClick(ClickEvent event) {
         DocsPage.this.switchTo(sample);
       }
-    }));
+    };
+    panel.add(Tag.asAnchor().add(icon).onClick(navigate));
+    panel.add(Tag.asAnchor().add(Heading.six().css("heading").text(sample.title())).onClick(navigate));
         
     main.add(panel);
   }
@@ -154,6 +168,7 @@ public class DocsPage implements DocsView {
           sample.asComponent().scrollTo();
         }
       });
+      
     }
     
     public Sampler detachChildren(){
